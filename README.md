@@ -24,7 +24,7 @@ npx hardhat compile
 echidna . --contract BugTest --all-contracts
 ```
 
-And we will see thee error:
+And we will see the error:
 
 ```bash
 Compiling .... Done! (3.916624396s)
@@ -52,3 +52,7 @@ If anyone can guide how to fix this and get Echidna going for these type of cont
 
 - Why does the `all-contracts` + HEVM raise troubles in te first place, since in the `BugTest` contract does not even import or deploy these libraries? _From my understanding with the `all-contracts` option we should only call all the contracts that have been deployed inside the testing contract?_
 - An obvious trivial and 3rd solution is disabling the 'problematic'-libraries. However, the actual protocol I aim to fuzz/test is a complex system with many 'key/critical'-functions written like that. I rather keep the codebase as it is and built my fuzz tests around the system as a whole, if possible.
+
+## Fix/workaround already exists:
+
+https://github.com/crytic/echidna/issues/836
