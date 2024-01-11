@@ -1,0 +1,7 @@
+# solcLibs:
+#   [
+#     "./contracts/lib_test/ChildLibrary.sol:ChildLibrary",
+#   ]
+
+deployContracts: [["0x1a", "ChildLibrary"], ["0x1b", "ParentLibrary"]]
+cryticArgs: ["--compile-libraries=(ChildLibrary,0x1a),(ParentLibrary,0x1b)"]

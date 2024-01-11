@@ -56,3 +56,16 @@ If anyone can guide how to fix this and get Echidna going for these type of cont
 ## Fix/workaround already exists:
 
 https://github.com/crytic/echidna/issues/836
+
+To fix this issue add to the echidna `config.yaml` the following:
+
+```yaml
+deployContracts: [["0x1a", "ChildLibrary"], ["0x1b", "ParentLibrary"]]
+cryticArgs: ["--compile-libraries=(ChildLibrary,0x1a),(ParentLibrary,0x1b)"]
+```
+
+and run:
+
+```bash
+echidna . --contract BugTest --all-contracts --config config.yaml
+```
